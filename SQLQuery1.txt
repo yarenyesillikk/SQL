@@ -1,0 +1,69 @@
+﻿select *from Employees
+select Firstname, LastName from Employees
+select FirstName, LastName, Title, BirthDate   from Employees
+SELECT DISTINCT 
+       City
+FROM Employees;
+select distinct HireDate from Employees
+select distinct  City from Employees
+select , City from Employees
+SELECT TitleOfCourtesy + ' ' + FirstName + ' ' + LastName AS Personel
+FROM Employees;
+
+select 'nasılsın' + ' ' + 'iyi'  + ' ' + 'misin' as personel  
+SELECT CONCAT(TitleOfCourtesy , ' ' , FirstName , ' ' , LastName) AS Employees
+FROM Employees;
+select concat( 'merhaba',' ', 'nasılsın',' ', 'iyi',' ', 'misin',' ', '?') as konuşma
+select * from Categories
+INSERT INTO Categories ( CategoryName , Description
+                       ) 
+VALUES ( 'Tatlı' , 'Fıstklı Sarma'
+       );
+INSERT INTO Categories ( Description
+                       ) 
+VALUES ( 'Tepsi Baklava'
+       );
+	   insert into Categories( CategoryName, Description ) values ( 'tatli', 'tepsi baklava');
+	   select * from Categories
+	   select *from Shippers
+	   insert into Shippers (CompanyName, Phone) values ( ' Mng Express' , ' (0532) 555-9831' );
+	   INSERT INTO Customers ( CompanyName)  
+VALUES ('Bilge Adam');
+	  select * from Customers;
+	  insert into Customers (CompanyName, CustomerID) values ('yaren yesillik', 'yrnyk');
+	  select * from Customers
+
+	  INSERT INTO Customers ( CompanyName , CustomerID
+                      ) 
+VALUES ( 'Bilge Adam' , 'BLGDM'
+       );
+
+SELECT *
+FROM Customers;
+
+SELECT *INTO Calisanlar FROM Employees;
+
+SELECT *
+FROM Calisanlar;
+
+update Calisanlar set LastName = 'vuranok'
+update Calisanlar set  FirstName= 'murat'  where EmployeeID=1
+
+update Calisanlar set LastName = 'şahin' where TitleOfCourtesy= 'Ms.'
+select*from Products
+select*into URUNLER from Products
+select*from URUNLER
+update URUNLER set UnitPrice= UnitPrice+ UnitPrice*0.05;
+drop table URUNLER
+delete from Calisanlar where LastName='vuranok'
+delete from calisanlar where EmployeeID=1
+select*from Calisanlar
+select*from Employees
+select *into personeller from Employees
+select*from personeller
+delete from personeller where TitleOfCourtesy= 'Ms.' 
+or TitleOfCourtesy= 'Mrs.'
+select FirstName,LastName,TitleOfCourtesy from Employees where  TitleOfCourtesy = 'Mr.'
+select FirstName,LastName,TitleOfCourtesy  from Employees where LastName= 'buchanan'
+select EmployeeID, FirstName, LastName from Employees where EmployeeID=1
+select FirstName,LastName, BirthDate from Employees where MONTH(BirthDate)=12

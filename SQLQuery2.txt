@@ -1,0 +1,92 @@
+﻿select*from Employees;
+select FirstName,LastName,BirthDate from Employees where YEAR(BirthDate) >=1950 and YEAR(BirthDate) <=1961;
+select FirstName,LastName,BirthDate  from Employees where year(BirthDate) between 1950 and 1961;
+select FirstName, LastName,TitleOfCourtesy, BirthDate, Title, Country from Employees where TitleOfCourtesy = 'Mr.' or TitleOfCourtesy = 'Mrs.' and Country= 'UK' ;
+
+select FirstName,LastName,Title,TitleOfCourtesy,BirthDate from Employees 
+select TitleOfCourtesy, FirstName,LastName, Year(getdate())- year(birthdate) as Age from Employees where Year(getdate())- Year(birthdate) >60 or TitleOfCourtesy= 'Mr.';
+SELECT Region
+FROM Employees
+
+SELECT TitleOfCourtesy , Title , FirstName , LastName , Region
+FROM Employees
+WHERE Region IS NULL ;
+select *from Employees;
+select TitleOfCourtesy,FirstName,LastName,ReportsTo from Employees where ReportsTo is null;
+select TitleOfCourtesy,FirstName,LastName,ReportsTo from Employees where ReportsTo is not null;
+
+select EmployeeID, FirstName,LastName,Title from Employees where EmployeeID between 2 and 8 order by FirstName ASC
+SELECT FirstName , LastName , BirthDate
+FROM Employees
+ORDER BY BirthDate;
+select FirstName,LastName, EmployeeID,Title from Employees order by FirstName, LastName desc
+select FirstName,LastName,BirthDate,HireDate,title,TitleOfCourtesy from Employees order by 1,2 desc;
+
+SELECT TitleOfCourtesy , FirstName , LastName , YEAR(GETDATE()) - YEAR(BirthDate) AS Age
+FROM Employees
+ORDER BY TitleOfCourtesy , Age DESC;
+SELECT FirstName , LastName , YEAR(BirthDate) AS BirthMonth
+FROM Employees
+WHERE YEAR(BirthDate) >= 1952
+      AND 
+      YEAR(BirthDate) <= 1960
+ORDER BY 3;
+select FirstName,LastName, YEAR(BirthDate) as birthmonth from Employees
+where YEAR(BirthDate) Between 1952 and 1960 order by 3;
+select FirstName,LastName  from Employees WHERE FirstName between 'Janet' and 'Robert' order by FirstName;
+
+SELECT TitleOfCourtesy , FirstName , LastName
+FROM Employees
+WHERE TitleOfCourtesy = 'Mr.'
+      OR 
+      TitleOfCourtesy = 'Dr.'
+	  order by TitleOfCourtesy
+
+	  select TitleOfCourtesy, FirstName,LastName, BirthDate from Employees where year(BirthDate) in (1955,1950,1960) order by BirthDate
+	  SELECT TOP 3 FirstName , LastName , Title
+FROM Employees; 
+							
+SELECT TOP 5 EmployeeID , FirstName , LastName , BirthDate
+FROM Employees
+ORDER BY FirstName;
+select top 25 percent FirstName,LastName, year(getdate())-year(BirthDate) as Age from Employees order by Age
+select FirstName,LastName from Employees where FirstName like 'michael'
+select FirstName,LastName from Employees where FirstName like 'A%'
+select FirstName,LastName  from Employees where LastName like '%N' ORDER BY LastName
+select FirstName,LastName from Employees where FirstName like '[AL]%' ORDER BY LastName
+Select FirstName, LastName from Employees where FirstName like '%[RT]%' ORDER BY LastName
+SELECT FirstName, LastName FROM Employees where FirstName like '%A_E%' ORDER BY FirstName
+select FirstName, LastName from Employees where FirstName like '%A__E%' order by FirstName
+SELECT FirstName , LastName FROM Employees WHERE FirstName LIKE '[J-R]%' ORDER BY FirstName;
+SELECT FirstName, LastName  from Employees where FirstName like '[AL][AN]%' order by FirstName
+select 5+6
+
+SELECT GETDATE();
+select ' Bilge Adam Beşiktaş'
+print ' Bilge Adam'
+					
+SELECT ASCII('A') AS 'Ascii Değeri (sayısal)'
+select char(90) as 'Metinsel Değeri'
+
+SELECT CHARINDEX('a' , 'murat.vuranok@bilgeadam.com',5) as 'diğer A'
+SELECT CHARINDEX('yavas','gokhanyavas.com',0)
+select left('bilge adam', 5)
+select RIGHT('yaren yeşillik', 9) as 'adım soyadım'
+select len('yaren yeşillik') as 'Toplam uzunluk'
+SELECT LOWER('BİLGe ADAM') AS 'LOWER' , UPPER('bilge Adam') AS 'UPPER';
+SELECT LEN('           bilge adam');
+
+
+SELECT LTRIM('           bilge adam')
+SELECT LEN(LTRIM('           bilge adam'));
+
+SELECT LEN(RTRIM('bilge adam           '))
+SELECT REPLACE('b i l g e a d a m' , ' ' , '-')
+select *from Products
+
+SELECT REPLACE(REPLACE(REPLACE(LOWER(ProductName) , 'ô' , 'o') , '''' , '-') , 'ş' , 's')
+FROM Products
+ORDER BY 1;
+PRINT 'bilge adam''da';
+SELECT REVERSE('bilge adam');
+SELECT 'bilge' + SPACE(50) + 'adam'
