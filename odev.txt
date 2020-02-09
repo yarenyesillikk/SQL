@@ -1,0 +1,25 @@
+﻿DECLARE @mail NVARCHAR(150)= 'murat.vuranok@bilgeadam.com' , @ad NVARCHAR(50) , @soyad NVARCHAR(100), @domain NVARCHAR(100) , @Index int 
+set @ad=LEFT(@mail,CHARINDEX('.',@mail)-1) 
+set @domain=SUBSTRING(@mail,15,9)
+SET @soyad = SUBSTRING(@mail,CHARINDEX('.',@mail) +1, (CHARINDEX ('@', @mail) - CHARINDEX('.',@mail) -1))
+--2.yol
+set @soyad=SUBSTRING(@mail,7,7)
+print('Mail:' + @mail)
+print('Ad:' + @ad)
+print('Soyad:' + @soyad)
+print('domain:' + @domain)
+
+-- ödev 2 
+
+declare @numara nvarchar(100)='5324567890' , @cepno nvarchar(50)
+
+  set @cepno ='+90 ('+SUBSTRING(@numara,1,3)+') ' +SUBSTRING(@numara,4,3)+ ' ' + SUBSTRING(@numara,6,2)+ ' ' + SUBSTRING(@numara,8,2)
+ print('Telefon Numarasi :' + @cepno)
+ 
+  declare @numara1 nvarchar(100)='05324567890', @cepno1 nvarchar(50)
+  
+  set @cepno1='+9'+SUBSTRING(@numara1,1,1)+ ' (' +SUBSTRING(@numara1,2,3)+') ' + SUBSTRING(@numara1,5,3)+' '+SUBSTRING(@numara1,8,2)+' '+SUBSTRING(@numara1,9,2)
+  print('Telefon Numarasi 2 :' + @cepno1)
+
+
+   
