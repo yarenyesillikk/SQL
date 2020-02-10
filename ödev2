@@ -1,1 +1,38 @@
+-- Toplam tutari 2500 ile 3500 arasinda olan siparişlerin gruplanması
+select * from Products
+select OrderID, (UnitPrice*Quantity) Toplam from [Order Details]
+where UnitPrice*Quantity between 2500 and 3500
+group by UnitPrice*Quantity,OrderID
+order by 2
+ 
+  --Her bir siparişteki toplam ürün sayisi 200'den az olanlar
+
+select OrderID , SUM(Quantity) As 'Sipariş Adet' from [Order Details]
+where sum(Quantity) < 200
+group by OrderID
+order by 2
+
+-- Kategorilere göre toplam stok miktarını bulunuz
+
+select P.UnitsInStock, C.CategoryName from Categories C join Products P on C.CategoryID=P.ProductID 
+group by  c.CategoryName,P.UnitsInStock
+ORDER BY 2
+
+--Her bir çalışan toplam ne kadarlık satış yapmıştır
+
+
+
+-- Bir siparişin hangi çalışan tarafından hangi müşteriye hangi kategorideki üründen hangi fiyattan kaç adet satıldığını listeleyiniz.
+-- Çalışanın adı, soyadı, ünvanı, görevi, işe başlama tarihi
+-- Müşterinin firma adını, temsilcisini ve telefonunu
+-- Ürünün adını, stok miktarını, birim fiyatını
+-- Siparişin adetini ve satış fiyatını
+-- Kategori adını
+
+SELECT O.OrderID,TitleOfCourtesy, E.Title, E.HireDate, C.CompanyName, C.ContactName,
+c.Phone,p.ProductName, P.UnitsInStock, od.UnitPrice, od.Quantity,
+o.Freight,ca.CategoryName from Employees E join Orders O on E.EmployeeID=O.EmployeeID  join Customers C  on  O.CustomerID=C.CustomerID join [Order Details] od on O.OrderID=od.OrderID join  Products P on P.ProductID=od.ProductID  join Categories ca on ca.CategoryID=P.CategoryID
+
+
+
 
