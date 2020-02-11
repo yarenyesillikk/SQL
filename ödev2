@@ -20,6 +20,11 @@ ORDER BY 2
 
 --Her bir çalışan toplam ne kadarlık satış yapmıştır
 
+select FirstName,LastName, COUNT(OrderID)  FROM Orders Join Employees
+on Orders.EmployeeID=Employees.EmployeeID
+group by FirstName,LastName
+
+
 
 
 -- Bir siparişin hangi çalışan tarafından hangi müşteriye hangi kategorideki üründen hangi fiyattan kaç adet satıldığını listeleyiniz.
